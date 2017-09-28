@@ -1,0 +1,28 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Login
+    </div>
+    <form novalidate (ngSubmit)="onSubmit(loginFrm)" [formGroup]="loginFrm">
+        <div class='panel-body'>
+            <div class="frm-ctrl">
+                <md-input-container>
+                    <input mdInput placeholder="Login ID" formControlName="LoginName" />
+                </md-input-container>
+                <div *ngIf="formErrors.LoginName" class="text-danger">
+                    {{ formErrors.LoginName }}
+                </div>
+            </div>
+            <div class="frm-ctrl">
+                <md-input-container>
+                    <input mdInput placeholder="Password" formControlName="Pwd" />
+                </md-input-container>
+                <div *ngIf="formErrors.Pwd" class="text-danger">
+                    {{ formErrors.Pwd }}
+                </div>
+            </div>
+        </div>
+        <md-dialog-actions class="md-dialog-footer" align="end">
+            <button type="submit" color="primary" md-raised-button>{{BtnTitle}}</button>
+        </md-dialog-actions>
+    </form>
+</div>
