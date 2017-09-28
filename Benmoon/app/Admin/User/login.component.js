@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var base_service_1 = require("../../Service/base.service");
 var forms_1 = require("@angular/forms");
+var global_1 = require("../../Shared/global");
 var LoginComponent = (function () {
     function LoginComponent(fb, _userService) {
         this.fb = fb;
@@ -60,6 +61,7 @@ var LoginComponent = (function () {
         }
     };
     LoginComponent.prototype.onSubmit = function (formData) {
+        this._userService.post(global_1.Global.LOGIN_ENDPOINT, formData.value).subscribe();
     };
     return LoginComponent;
 }());

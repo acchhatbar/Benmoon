@@ -67,6 +67,6 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit(formData: any) {
-
+        this._userService.post(Global.LOGIN_ENDPOINT, formData.value).subscribe();
     }
 }

@@ -13,9 +13,9 @@ namespace Benmoon.Controllers
 {
     public class LoginAPIController : BaseAPIController
     {
-        public HttpResponseMessage Login(string loginID, string pwd)
+        public HttpResponseMessage Post([FromBody]tblUserMaster value)
         {
-            var obj = benmoonDB.tblUserMasters.Where(x => x.LoginName.Equals(loginID) && x.Pwd.Equals(pwd)).FirstOrDefault();
+            var obj = benmoonDB.tblUserMasters.Where(x => x.LoginName.Equals(value.LoginName) && x.Pwd.Equals(value.Pwd)).FirstOrDefault();
             if (obj != null)
             {
                 HttpContext.Current.Session["UserID"] = obj.UserID;
