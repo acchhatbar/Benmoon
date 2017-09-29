@@ -11,11 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var base_service_1 = require("../../Service/base.service");
+var router_1 = require("@angular/router");
 var forms_1 = require("@angular/forms");
 var global_1 = require("../../Shared/global");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/do");
+require("rxjs/add/operator/catch");
 var LoginComponent = (function () {
-    function LoginComponent(fb, _userService) {
+    function LoginComponent(fb, router, _userService) {
         this.fb = fb;
+        this.router = router;
         this._userService = _userService;
         this.BtnTitle = "Login";
         this.indLoading = false;
@@ -61,15 +66,21 @@ var LoginComponent = (function () {
         }
     };
     LoginComponent.prototype.onSubmit = function (formData) {
-        this._userService.post(global_1.Global.LOGIN_ENDPOINT, formData.value).subscribe();
+        var _this = this;
+        return this._userService.post(global_1.Global.LOGIN_ENDPOINT, formData.value).subscribe(function (data) {
+            localStorage.setItem(global_1.Global.ADMIN_CURRENT_USER_SESSION, JSON.stringify(data));
+            //localStorage.removeItem('currentUser');
+            _this.router.navigate(['home']);
+        });
     };
     return LoginComponent;
 }());
 LoginComponent = __decorate([
     core_1.Component({
+        selector: "login-app",
         templateUrl: 'app/Admin/User/login.component.html',
     }),
-    __metadata("design:paramtypes", [forms_1.FormBuilder, base_service_1.BaseService])
+    __metadata("design:paramtypes", [forms_1.FormBuilder, router_1.Router, base_service_1.BaseService])
 ], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

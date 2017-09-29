@@ -6,8 +6,12 @@ import { IUser } from '../../Model/user';
 import { DBOperation } from '../../Shared/enum';
 import { Global } from '../../Shared/global';
 import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
 
 @Component({
+    selector: "login-app",
     templateUrl: 'app/Admin/User/login.component.html',
 })
 
@@ -20,7 +24,7 @@ export class LoginComponent implements OnInit {
     user: IUser;
     dbops: DBOperation;
 
-    constructor(private fb: FormBuilder, private _userService: BaseService) { }
+    constructor(private fb: FormBuilder, private router: Router, private _userService: BaseService) { }
 
     ngOnInit(): void {
         this.loginFrm = this.fb.group({
@@ -67,6 +71,13 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit(formData: any) {
-        this._userService.post(Global.LOGIN_ENDPOINT, formData.value).subscribe();
+        return this._userService.post(Global.LOGIN_ENDPOINT, formData.value).subscribe(
+            data => {
+                localStorage.setItem(Global.ADMIN_CURRENT_USER_SESSION, JSON.stringify(data));
+                //localStorage.removeItem('currentUser');
+                this.router.navigate(['home']);
+            }
+        );
+        
     }
 }

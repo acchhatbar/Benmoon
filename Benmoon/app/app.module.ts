@@ -12,7 +12,8 @@ import { BaseService } from './Service/base.service'
 import { SearchComponent } from './Shared/search.component';
 import AppErrorHandler from './Shared/errorhandler';
 import { LoginComponent } from './admin/user/login.component';
-
+import { LogoutComponent } from './admin/user/logout.component';
+import { HomeComponent } from './admin/home/home.component';
 import { DataGrid } from './Shared/datagrid/datagrid.component';
 import { DataGridUtil } from './Shared/datagrid/datagrid.util';
 import { Format } from './Shared/datagrid/format';
@@ -23,7 +24,7 @@ import { OrderBy } from './Shared/datagrid/orderby';
         BrowserAnimationsModule,
         MaterialModule,
         MdNativeDateModule],
-    declarations: [AppComponent, LoginComponent, SearchComponent,
+    declarations: [AppComponent, LoginComponent, LogoutComponent, HomeComponent, SearchComponent,
         DataGrid, Format, OrderBy
                   ],
     providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, { provide: APP_BASE_HREF, useValue: '/' }, BaseService],//, UserFilterPipe],

@@ -24,9 +24,9 @@ import {
                            <md-icon>home</md-icon>
                            <span>Home</span>
                          </button>
-                         <button md-menu-item [routerLink]="['user']">
+                         <button md-menu-item [routerLink]="['logout']">
                            <md-icon>group</md-icon>
-                           <span>Users Management</span>
+                           <span>Sign Out</span>
                          </button>
                        </md-menu>
                     </div>

@@ -15,10 +15,10 @@ namespace Benmoon.Controllers
     {
         public HttpResponseMessage Post([FromBody]tblUserMaster value)
         {
-            var obj = benmoonDB.tblUserMasters.Where(x => x.LoginName.Equals(value.LoginName) && x.Pwd.Equals(value.Pwd)).FirstOrDefault();
+            var obj = benmoonDB.tblUserMasters.Where(x => x.LoginName.Equals(value.LoginName) && x.Pwd.Equals(value.Pwd)).Select(x => new { x.UserID, x.UserName, x.LoginName }).FirstOrDefault();
             if (obj != null)
             {
-                HttpContext.Current.Session["UserID"] = obj.UserID;
+                //HttpContext.Current.Session["UserID"] = obj.UserID;
                 return ToJson(obj);
             }
             else

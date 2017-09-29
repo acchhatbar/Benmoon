@@ -20,6 +20,8 @@ var base_service_1 = require("./Service/base.service");
 var search_component_1 = require("./Shared/search.component");
 var errorhandler_1 = require("./Shared/errorhandler");
 var login_component_1 = require("./admin/user/login.component");
+var logout_component_1 = require("./admin/user/logout.component");
+var home_component_1 = require("./admin/home/home.component");
 var datagrid_component_1 = require("./Shared/datagrid/datagrid.component");
 var format_1 = require("./Shared/datagrid/format");
 var orderby_1 = require("./Shared/datagrid/orderby");
@@ -34,7 +36,7 @@ AppModule = __decorate([
             animations_1.BrowserAnimationsModule,
             material_1.MaterialModule,
             material_1.MdNativeDateModule],
-        declarations: [app_component_1.AppComponent, login_component_1.LoginComponent, search_component_1.SearchComponent,
+        declarations: [app_component_1.AppComponent, login_component_1.LoginComponent, logout_component_1.LogoutComponent, home_component_1.HomeComponent, search_component_1.SearchComponent,
             datagrid_component_1.DataGrid, format_1.Format, orderby_1.OrderBy
         ],
         providers: [{ provide: core_1.ErrorHandler, useClass: errorhandler_1.default }, { provide: common_1.APP_BASE_HREF, useValue: '/' }, base_service_1.BaseService],
