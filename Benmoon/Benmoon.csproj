@@ -205,7 +205,9 @@
     <Content Include="app\Admin\User\login.component.html" />
     <Content Include="app\Admin\User\logout.component.html" />
     <Content Include="app\Admin\User\managerole.component.html" />
+    <Content Include="app\Admin\User\manageuser.component.html" />
     <Content Include="app\Admin\User\role.component.html" />
+    <Content Include="app\Admin\User\user.component.html" />
     <Content Include="app\Shared\datagrid\datagrid.component.html" />
     <Content Include="app\Shared\datagrid\datagrid.component.js" />
     <Content Include="app\Shared\datagrid\datagrid.style.css" />
@@ -318,11 +320,14 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\Admin\filter\role.pipe.ts" />
+    <TypeScriptCompile Include="app\Admin\filter\user.pipe.ts" />
     <TypeScriptCompile Include="app\Admin\Home\home.component.ts" />
     <TypeScriptCompile Include="app\Admin\User\login.component.ts" />
     <TypeScriptCompile Include="app\Admin\User\logout.component.ts" />
     <TypeScriptCompile Include="app\Admin\User\managerole.component.ts" />
+    <TypeScriptCompile Include="app\Admin\User\manageuser.component.ts" />
     <TypeScriptCompile Include="app\Admin\User\role.component.ts" />
+    <TypeScriptCompile Include="app\Admin\User\user.component.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\app.routing.ts" />

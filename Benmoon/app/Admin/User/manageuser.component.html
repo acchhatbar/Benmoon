@@ -1,0 +1,60 @@
+﻿<form novalidate (ngSubmit)="onSubmit(userFrm)" [formGroup]="userFrm">
+    <div>
+        <h1 md-dialog-title><span><md-icon>create</md-icon>{{modalTitle}}</span></h1>
+    </div>
+    <div style="padding-bottom:1px;background-color:#d8d8d8"></div>
+    <div md-dialog-content class="md-dialog-container">
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Login Name" formControlName="LoginName">
+            </md-input-container>
+            <div *ngIf="formErrors.LoginName" class="text-danger">
+                {{ formErrors.LoginName }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="User Name" formControlName="UserName">
+            </md-input-container>
+            <div *ngIf="formErrors.UserName" class="text-danger">
+                {{ formErrors.UserName }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Password" formControlName="Pwd" type="password">
+            </md-input-container>
+            <div *ngIf="formErrors.Pwd" class="text-danger">
+                {{ formErrors.Pwd }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Email" formControlName="Email">
+            </md-input-container>
+            <div *ngIf="formErrors.Email" class="text-danger">
+                {{ formErrors.Email }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Mobile" formControlName="Mobile">
+            </md-input-container>
+            <div *ngIf="formErrors.Mobile" class="text-danger">
+                {{ formErrors.Mobile }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-checkbox formControlName="IsActive">
+                Is Active
+            </md-checkbox>
+            <div *ngIf="formErrors.IsActive" class="text-danger">
+                {{ formErrors.IsActive }}
+            </div>
+        </div>
+    </div>
+    <md-dialog-actions class="md-dialog-footer" align="end">
+        <button color="warn" type="button" md-raised-button (click)="dialogRef.close()">Cancel</button>&nbsp;
+        <button type="submit" color="primary" [disabled]="roleFrm.invalid" md-raised-button>{{modalBtnTitle}}</button>
+        </ md-dialog-actions>
+</form>

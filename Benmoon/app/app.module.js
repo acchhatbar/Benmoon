@@ -17,12 +17,15 @@ var http_1 = require("@angular/http");
 var app_routing_1 = require("./app.routing");
 var base_service_1 = require("./Service/base.service");
 var role_pipe_1 = require("./admin/filter/role.pipe");
+var user_pipe_1 = require("./admin/filter/user.pipe");
 var search_component_1 = require("./Shared/search.component");
 var errorhandler_1 = require("./Shared/errorhandler");
 var login_component_1 = require("./admin/user/login.component");
 var logout_component_1 = require("./admin/user/logout.component");
 var role_component_1 = require("./admin/user/role.component");
 var managerole_component_1 = require("./admin/user/managerole.component");
+var user_component_1 = require("./admin/user/user.component");
+var manageuser_component_1 = require("./admin/user/manageuser.component");
 var home_component_1 = require("./admin/home/home.component");
 var datagrid_component_1 = require("./Shared/datagrid/datagrid.component");
 var format_1 = require("./Shared/datagrid/format");
@@ -40,10 +43,10 @@ AppModule = __decorate([
             material_1.MaterialModule,
             material_1.MdNativeDateModule],
         declarations: [app_component_1.AppComponent, login_component_1.LoginComponent, logout_component_1.LogoutComponent, home_component_1.HomeComponent, search_component_1.SearchComponent,
-            datagrid_component_1.DataGrid, format_1.Format, orderby_1.OrderBy, adminheader_component_1.AdminHeaderComponent, role_component_1.RoleComponent, managerole_component_1.ManageRoleComponent
+            datagrid_component_1.DataGrid, format_1.Format, orderby_1.OrderBy, adminheader_component_1.AdminHeaderComponent, role_component_1.RoleComponent, managerole_component_1.ManageRoleComponent, user_component_1.UserComponent, manageuser_component_1.ManageUserComponent
         ],
-        providers: [{ provide: core_1.ErrorHandler, useClass: errorhandler_1.default }, { provide: common_1.APP_BASE_HREF, useValue: '/' }, base_service_1.BaseService, role_pipe_1.RoleFilterPipe],
-        entryComponents: [managerole_component_1.ManageRoleComponent],
+        providers: [{ provide: core_1.ErrorHandler, useClass: errorhandler_1.default }, { provide: common_1.APP_BASE_HREF, useValue: '/' }, base_service_1.BaseService, role_pipe_1.RoleFilterPipe, user_pipe_1.UserFilterPipe],
+        entryComponents: [managerole_component_1.ManageRoleComponent, manageuser_component_1.ManageUserComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
