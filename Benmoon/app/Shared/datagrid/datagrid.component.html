@@ -7,7 +7,7 @@
         <ng-container *ngFor="let hdrbtn of hdrbtns">
             <button *ngIf="!hdrbtn.ishide" type="button" class="btn btn-primary" (click)="click(hdrbtn,null)">{{hdrbtn.title}}</button>
         </ng-container>
-       <button *ngIf="isExporttoCSV && (data!=null && data.length>0)" type="button" class="btn btn-primary" (click)="exporttoCSV()">Export to Excel</button>
+        <button *ngIf="isExporttoCSV && (data!=null && data.length>0)" type="button" class="btn btn-primary" (click)="exporttoCSV()">Export to Excel</button>
     </div>
 </div>
 
@@ -15,6 +15,9 @@
     <table class="table table-hover table-striped table-sortable" *ngIf='data ; else loadingScreen;'>
         <thead>
             <tr>
+                <th>
+
+                </th>
                 <th *ngFor="let column of columns" [class]="selectedClass(column.variable)"
                     (click)="changeSorting(column.variable)">
                     {{column.display}}
@@ -26,6 +29,11 @@
         </thead>
         <tbody>
             <tr *ngFor="let row of pdata | orderby : convertSorting()">
+                <ng-container *ngFor="let chk of gridchks">
+                    <td>
+                        <md-checkbox></md-checkbox>
+                    </td>
+                </ng-container>
                 <td *ngFor="let column of columns">
                     {{row[column.variable] | format : column.filter}}
                 </td>

@@ -113,6 +113,10 @@ __decorate([
     __metadata("design:type", Object)
 ], DataGrid.prototype, "filter", void 0);
 __decorate([
+    core_1.Input(),
+    __metadata("design:type", Array)
+], DataGrid.prototype, "gridchks", void 0);
+__decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)
 ], DataGrid.prototype, "btnclick", void 0);

@@ -1,0 +1,36 @@
+﻿<form novalidate (ngSubmit)="onSubmit(roleFrm)" [formGroup]="roleFrm">
+    <div>
+        <h1 md-dialog-title><span><md-icon>create</md-icon>{{modalTitle}}</span></h1>
+    </div>
+    <div style="padding-bottom:1px;background-color:#d8d8d8"></div>
+    <div md-dialog-content class="md-dialog-container">
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Role Name" formControlName="RoleName">
+            </md-input-container>
+            <div *ngIf="formErrors.RoleName" class="text-danger">
+                {{ formErrors.RoleName }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Role Desc" formControlName="RoleDesc">
+            </md-input-container>
+            <div *ngIf="formErrors.RoleDesc" class="text-danger">
+                {{ formErrors.RoleDesc }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-checkbox formControlName="IsActive">
+                Is Active
+            </md-checkbox>
+            <div *ngIf="formErrors.IsActive" class="text-danger">
+                {{ formErrors.IsActive }}
+            </div>
+        </div>
+    </div>
+    <md-dialog-actions class="md-dialog-footer" align="end">
+        <button color="warn" type="button" md-raised-button (click)="dialogRef.close()">Cancel</button>&nbsp;
+        <button type="submit" color="primary" [disabled]="roleFrm.invalid" md-raised-button>{{modalBtnTitle}}</button>
+        </ md-dialog-actions>
+</form>

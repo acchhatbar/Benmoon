@@ -11,7 +11,6 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
 @Component({
-    selector: "login-app",
     templateUrl: 'app/Admin/User/login.component.html',
 })
 

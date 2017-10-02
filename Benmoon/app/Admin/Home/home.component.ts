@@ -9,8 +9,10 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import { AdminHeaderComponent } from '../adminheader.component';
 
 @Component({
+    selector: 'user-app',
     templateUrl: 'app/Admin/Home/home.component.html',
 })
 

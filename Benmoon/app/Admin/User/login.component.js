@@ -77,7 +77,6 @@ var LoginComponent = (function () {
 }());
 LoginComponent = __decorate([
     core_1.Component({
-        selector: "login-app",
         templateUrl: 'app/Admin/User/login.component.html',
     }),
     __metadata("design:paramtypes", [forms_1.FormBuilder, router_1.Router, base_service_1.BaseService])

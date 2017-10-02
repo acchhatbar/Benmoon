@@ -42,8 +42,8 @@ var AppComponent = (function () {
 }());
 AppComponent = __decorate([
     core_1.Component({
-        selector: "user-app",
-        template: "\n                <div>\n                  <nav class='navbar navbar-default'>\n                       <div class='container-fluid'>\n                      <button md-icon-button [mdMenuTriggerFor]=\"menu\">\n                         <md-icon>more_vert</md-icon> Menu\n                       </button>\n                       <md-menu #menu=\"mdMenu\">\n                         <button md-menu-item [routerLink]=\"['home']\">\n                           <md-icon>home</md-icon>\n                           <span>Home</span>\n                         </button>\n                         <button md-menu-item [routerLink]=\"['logout']\">\n                           <md-icon>group</md-icon>\n                           <span>Sign Out</span>\n                         </button>\n                       </md-menu>\n                    </div>\n                   </nav>\n                   <div class='container'>\n                       <router-outlet><div class=\"loading-overlay\" *ngIf=\"loading\">\n                    <!-- show something fancy here, here with Angular 2 Material's loading bar or circle -->\n                    <md-progress-bar mode=\"indeterminate\"></md-progress-bar>\n                      </div></router-outlet>\n                   </div>\n                </div>\n                "
+        selector: "login-app",
+        template: "\n                <div>\n                  \n                   <div class='container'>\n                       <router-outlet><div class=\"loading-overlay\" *ngIf=\"loading\">\n                    <!-- show something fancy here, here with Angular 2 Material's loading bar or circle -->\n                    <md-progress-bar mode=\"indeterminate\"></md-progress-bar>\n                      </div></router-outlet>\n                   </div>\n                </div>\n                "
     }),
     __metadata("design:paramtypes", [router_1.Router])
 ], AppComponent);

@@ -28,6 +28,7 @@ export class DataGrid {
     @Input() isExporttoCSV: boolean;
     @Input() exportFileName: string;
     @Input() filter: any;
+    @Input() gridchks: any[];
 
     //Output Variable
     @Output()

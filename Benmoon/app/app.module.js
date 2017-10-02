@@ -16,15 +16,18 @@ var app_component_1 = require("./app.component");
 var http_1 = require("@angular/http");
 var app_routing_1 = require("./app.routing");
 var base_service_1 = require("./Service/base.service");
-//import { UserFilterPipe } from './filter/user.pipe'
+var role_pipe_1 = require("./admin/filter/role.pipe");
 var search_component_1 = require("./Shared/search.component");
 var errorhandler_1 = require("./Shared/errorhandler");
 var login_component_1 = require("./admin/user/login.component");
 var logout_component_1 = require("./admin/user/logout.component");
+var role_component_1 = require("./admin/user/role.component");
+var managerole_component_1 = require("./admin/user/managerole.component");
 var home_component_1 = require("./admin/home/home.component");
 var datagrid_component_1 = require("./Shared/datagrid/datagrid.component");
 var format_1 = require("./Shared/datagrid/format");
 var orderby_1 = require("./Shared/datagrid/orderby");
+var adminheader_component_1 = require("./admin/adminheader.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -37,10 +40,10 @@ AppModule = __decorate([
             material_1.MaterialModule,
             material_1.MdNativeDateModule],
         declarations: [app_component_1.AppComponent, login_component_1.LoginComponent, logout_component_1.LogoutComponent, home_component_1.HomeComponent, search_component_1.SearchComponent,
-            datagrid_component_1.DataGrid, format_1.Format, orderby_1.OrderBy
+            datagrid_component_1.DataGrid, format_1.Format, orderby_1.OrderBy, adminheader_component_1.AdminHeaderComponent, role_component_1.RoleComponent, managerole_component_1.ManageRoleComponent
         ],
-        providers: [{ provide: core_1.ErrorHandler, useClass: errorhandler_1.default }, { provide: common_1.APP_BASE_HREF, useValue: '/' }, base_service_1.BaseService],
-        entryComponents: [],
+        providers: [{ provide: core_1.ErrorHandler, useClass: errorhandler_1.default }, { provide: common_1.APP_BASE_HREF, useValue: '/' }, base_service_1.BaseService, role_pipe_1.RoleFilterPipe],
+        entryComponents: [managerole_component_1.ManageRoleComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

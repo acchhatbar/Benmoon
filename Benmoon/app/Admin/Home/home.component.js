@@ -30,6 +30,7 @@ var HomeComponent = (function () {
 }());
 HomeComponent = __decorate([
     core_1.Component({
+        selector: 'user-app',
         templateUrl: 'app/Admin/Home/home.component.html',
     }),
     __metadata("design:paramtypes", [forms_1.FormBuilder, router_1.Router])

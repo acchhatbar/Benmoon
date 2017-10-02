@@ -63,6 +63,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -167,6 +168,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginAPIController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RoleAPIController.cs" />
     <Compile Include="Controllers\UserAPIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -198,9 +200,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\Admin\adminheader.component.html" />
     <Content Include="app\Admin\Home\home.component.html" />
     <Content Include="app\Admin\User\login.component.html" />
     <Content Include="app\Admin\User\logout.component.html" />
+    <Content Include="app\Admin\User\managerole.component.html" />
+    <Content Include="app\Admin\User\role.component.html" />
     <Content Include="app\Shared\datagrid\datagrid.component.html" />
     <Content Include="app\Shared\datagrid\datagrid.component.js" />
     <Content Include="app\Shared\datagrid\datagrid.style.css" />
@@ -213,10 +218,12 @@
     <Content Include="app\Shared\search.component.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Material_Icons.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -254,6 +261,11 @@
     <Content Include="Models\BenmoonDB.edmx.diagram">
       <DependentUpon>BenmoonDB.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -284,6 +296,7 @@
     <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\Shared\menu\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -296,22 +309,29 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\Admin\filter\role.pipe.ts" />
     <TypeScriptCompile Include="app\Admin\Home\home.component.ts" />
     <TypeScriptCompile Include="app\Admin\User\login.component.ts" />
     <TypeScriptCompile Include="app\Admin\User\logout.component.ts" />
+    <TypeScriptCompile Include="app\Admin\User\managerole.component.ts" />
+    <TypeScriptCompile Include="app\Admin\User\role.component.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\app.routing.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\Model\Role.ts" />
     <TypeScriptCompile Include="app\Model\User.ts" />
     <TypeScriptCompile Include="app\Service\base.service.ts" />
     <TypeScriptCompile Include="app\Service\user.service.ts" />
+    <TypeScriptCompile Include="app\Admin\adminheader.component.ts" />
     <TypeScriptCompile Include="app\Shared\datagrid\datagrid.component.ts" />
     <TypeScriptCompile Include="app\Shared\datagrid\datagrid.util.ts" />
     <TypeScriptCompile Include="app\Shared\datagrid\format.ts" />

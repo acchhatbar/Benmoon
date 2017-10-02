@@ -11,26 +11,10 @@ import {
 
 
 @Component({
-    selector: "user-app",
+    selector: "login-app",
     template: `
                 <div>
-                  <nav class='navbar navbar-default'>
-                       <div class='container-fluid'>
-                      <button md-icon-button [mdMenuTriggerFor]="menu">
-                         <md-icon>more_vert</md-icon> Menu
-                       </button>
-                       <md-menu #menu="mdMenu">
-                         <button md-menu-item [routerLink]="['home']">
-                           <md-icon>home</md-icon>
-                           <span>Home</span>
-                         </button>
-                         <button md-menu-item [routerLink]="['logout']">
-                           <md-icon>group</md-icon>
-                           <span>Sign Out</span>
-                         </button>
-                       </md-menu>
-                    </div>
-                   </nav>
+                  
                    <div class='container'>
                        <router-outlet><div class="loading-overlay" *ngIf="loading">
                     <!-- show something fancy here, here with Angular 2 Material's loading bar or circle -->

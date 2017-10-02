@@ -1,0 +1,26 @@
+﻿<div>
+    <nav class='navbar navbar-default'>
+        <div class='container-fluid'>
+            <!--<button md-icon-button [mdMenuTriggerFor]="menu">
+                <md-icon>more_vert</md-icon> Menu
+            </button>-->
+            <button md-menu-item [routerLink]="['../home']">
+                <!--<md-icon>home</md-icon>-->
+                <span>Home</span>
+            </button>
+            <button md-menu-item [mdMenuTriggerFor]="usermenu">
+                <!--<md-icon>group</md-icon>-->
+                <span>User Management</span>
+            </button>
+            <button md-menu-item [routerLink]="['../logout']">
+                <!--<md-icon>group</md-icon>-->
+                <span>Sign Out</span>
+            </button>
+            <md-menu #usermenu="mdMenu">
+                <button md-menu-item [routerLink]="['../role']">
+                    <span>Role Management</span>
+                </button>
+            </md-menu>
+        </div>
+    </nav>
+</div>
