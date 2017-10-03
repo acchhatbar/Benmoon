@@ -15,11 +15,39 @@ namespace Benmoon.Controllers
     {
         public HttpResponseMessage Get()
         {
-            return ToJson(benmoonDB.tblUserMasters.AsEnumerable());
+            var users = (from um in benmoonDB.tblUserMasters
+                              join rm in benmoonDB.tblRoleMasters on um.RoleID equals rm.RoleID
+                              select new
+                              {
+                                  UserID = um.UserID,
+                                  RoleID = um.RoleID,
+                                  LoginName = um.LoginName,
+                                  UserName = um.UserName,
+                                  Pwd = um.Pwd,
+                                  Email = um.Email,
+                                  Mobile = um.Mobile,
+                                  IsActive = um.IsActive,
+                                  CommandID = um.CommandID,
+                                  CreateBy = um.CreateBy,
+                                  CreateDate = um.CreateDate,
+                                  CreateIP = um.CreateIP,
+                                  UpdateBy = um.UpdateBy,
+                                  UpdateDate = um.UpdateDate,
+                                  UpdateIP = um.UpdateIP,
+                                  RoleName = rm.RoleName
+                              });
+            return ToJson(users);
+            //return ToJson(benmoonDB.tblUserMasters.AsEnumerable());
         }
 
         public HttpResponseMessage Post([FromBody]tblUserMaster value)
         {
+            if (benmoonDB.tblUserMasters.Any(x => x.LoginName == value.LoginName))
+                return ErrorJson("Record with same Login Name already Exists");
+
+            if (benmoonDB.tblUserMasters.Any(x => x.Email == value.Email))
+                return ErrorJson("Record with same Email already Exists");
+
             int intUserID = benmoonDB.tblUserMasters.Max(x => x.UserID) + 1;
             value.UserID = intUserID;
             value.CommandID = 1;
@@ -34,11 +62,19 @@ namespace Benmoon.Controllers
 
         public HttpResponseMessage Put(int id, [FromBody]tblUserMaster value)
         {
+            if (benmoonDB.tblUserMasters.Any(x => x.LoginName == value.LoginName && x.UserID != value.UserID))
+                return ErrorJson("Record with same Login Name already Exists");
+
+            if (benmoonDB.tblUserMasters.Any(x => x.Email == value.Email && x.UserID != value.UserID))
+                return ErrorJson("Record with same Email already Exists");
+
             benmoonDB.tblUserMasters.Attach(value);
+
             value.CommandID = 2;
             value.UpdateDate = DateTime.Now;
             value.UpdateIP = "";
 
+            benmoonDB.Entry(value).Property(x => x.RoleID).IsModified = true;
             benmoonDB.Entry(value).Property(x => x.LoginName).IsModified = true;
             benmoonDB.Entry(value).Property(x => x.UserName).IsModified = true;
             benmoonDB.Entry(value).Property(x => x.Pwd).IsModified = true;
@@ -56,6 +92,6 @@ namespace Benmoon.Controllers
             return ToJson(benmoonDB.SaveChanges());
         }
 
-        
+
     }
 }

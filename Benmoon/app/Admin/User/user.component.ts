@@ -43,6 +43,11 @@ export class UserComponent implements OnInit {
             filter: 'text'
         },
         {
+            display: 'Role',
+            variable: 'RoleName',
+            filter: 'text',
+        },
+        {
             display: 'Email',
             variable: 'Email',
             filter: 'text',

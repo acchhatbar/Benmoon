@@ -2,6 +2,7 @@
 import { BaseService } from '../../Service/base.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IUser } from '../../Model/User';
+import { IRole } from '../../Model/role';
 import { DBOperation } from '../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../Shared/global';
@@ -13,6 +14,8 @@ import { FormControl } from '@angular/forms';
 })
 
 export class ManageUserComponent implements OnInit {
+    roles: IRole[];
+    selectedRole: IRole;
     msg: string;
     indLoading: boolean = false;
     userFrm: FormGroup;
@@ -26,11 +29,11 @@ export class ManageUserComponent implements OnInit {
     ngOnInit(): void {
         this.userFrm = this.fb.group({
             UserID: [''],
-            RoleID: [''],
+            RoleID: ['', [Validators.required]],
             LoginName: ['', [Validators.required, Validators.maxLength(10)]],
             UserName: ['', [Validators.required, Validators.maxLength(50)]],
             Pwd: ['', [Validators.required, Validators.maxLength(10)]],
-            Email: ['', [[Validators.required, Validators.maxLength(100), Validators.email]]],
+            Email: ['', [Validators.required, Validators.maxLength(100), Validators.email]],
             Mobile: ['', [Validators.required, Validators.maxLength(10)]],
             IsActive: [''],
             CommandID: [''],
@@ -39,18 +42,21 @@ export class ManageUserComponent implements OnInit {
             CreateIP: [''],
             UpdateBy: [''],
             UpdateDate: [''],
-            UpdateIP: ['']
+            UpdateIP: [''],
+            RoleName: ['']
         });
-        debugger;
         this.userFrm.valueChanges.subscribe(data => this.onValueChanged(data));
         this.onValueChanged();
+        this.LoadRoles();
 
         if (this.dbops == DBOperation.create)
             this.userFrm.reset();
         else
             this.userFrm.setValue(this.user);
+            
 
         this.SetControlsState(this.dbops == DBOperation.delete ? false : true);
+        
     }
 
     onValueChanged(data?: any) {
@@ -73,6 +79,7 @@ export class ManageUserComponent implements OnInit {
     }
 
     formErrors = {
+        'RoleID': '',
         'LoginName': '',
         'UserName': '',
         'Pwd':'',
@@ -82,6 +89,9 @@ export class ManageUserComponent implements OnInit {
     };
 
     validationMessages = {
+        'RoleID': {
+            'required': 'Role is required.'
+        },
         'LoginName': {
             'maxlength': 'Login Name cannot be more than 10 characters long.',
             'required': 'Login Name is required.'
@@ -163,5 +173,11 @@ export class ManageUserComponent implements OnInit {
 
     SetControlsState(isEnable: boolean) {
         isEnable ? this.userFrm.enable() : this.userFrm.disable();
+    }
+
+    LoadRoles(): void {
+        this._userService.get(Global.BASE_ROLE_ENDPOINT)
+            .subscribe(roles => { this.roles = roles; }
+            );
     }
 }

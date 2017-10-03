@@ -44,6 +44,11 @@ var UserComponent = (function () {
                 filter: 'text'
             },
             {
+                display: 'Role',
+                variable: 'RoleName',
+                filter: 'text',
+            },
+            {
                 display: 'Email',
                 variable: 'Email',
                 filter: 'text',

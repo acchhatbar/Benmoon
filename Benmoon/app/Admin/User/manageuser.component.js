@@ -22,6 +22,7 @@ var ManageUserComponent = (function () {
         this.dialogRef = dialogRef;
         this.indLoading = false;
         this.formErrors = {
+            'RoleID': '',
             'LoginName': '',
             'UserName': '',
             'Pwd': '',
@@ -30,6 +31,9 @@ var ManageUserComponent = (function () {
             'IsActive': ''
         };
         this.validationMessages = {
+            'RoleID': {
+                'required': 'Role is required.'
+            },
             'LoginName': {
                 'maxlength': 'Login Name cannot be more than 10 characters long.',
                 'required': 'Login Name is required.'
@@ -57,11 +61,11 @@ var ManageUserComponent = (function () {
         var _this = this;
         this.userFrm = this.fb.group({
             UserID: [''],
-            RoleID: [''],
+            RoleID: ['', [forms_1.Validators.required]],
             LoginName: ['', [forms_1.Validators.required, forms_1.Validators.maxLength(10)]],
             UserName: ['', [forms_1.Validators.required, forms_1.Validators.maxLength(50)]],
             Pwd: ['', [forms_1.Validators.required, forms_1.Validators.maxLength(10)]],
-            Email: ['', [[forms_1.Validators.required, forms_1.Validators.maxLength(100), forms_1.Validators.email]]],
+            Email: ['', [forms_1.Validators.required, forms_1.Validators.maxLength(100), forms_1.Validators.email]],
             Mobile: ['', [forms_1.Validators.required, forms_1.Validators.maxLength(10)]],
             IsActive: [''],
             CommandID: [''],
@@ -70,11 +74,12 @@ var ManageUserComponent = (function () {
             CreateIP: [''],
             UpdateBy: [''],
             UpdateDate: [''],
-            UpdateIP: ['']
+            UpdateIP: [''],
+            RoleName: ['']
         });
-        debugger;
         this.userFrm.valueChanges.subscribe(function (data) { return _this.onValueChanged(data); });
         this.onValueChanged();
+        this.LoadRoles();
         if (this.dbops == enum_1.DBOperation.create)
             this.userFrm.reset();
         else
@@ -142,6 +147,11 @@ var ManageUserComponent = (function () {
     };
     ManageUserComponent.prototype.SetControlsState = function (isEnable) {
         isEnable ? this.userFrm.enable() : this.userFrm.disable();
+    };
+    ManageUserComponent.prototype.LoadRoles = function () {
+        var _this = this;
+        this._userService.get(global_1.Global.BASE_ROLE_ENDPOINT)
+            .subscribe(function (roles) { _this.roles = roles; });
     };
     return ManageUserComponent;
 }());

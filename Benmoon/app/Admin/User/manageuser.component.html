@@ -5,6 +5,16 @@
     <div style="padding-bottom:1px;background-color:#d8d8d8"></div>
     <div md-dialog-content class="md-dialog-container">
         <div class="frm-ctrl">
+            <md-select placeholder="Role" formControlName="RoleID">
+                <md-option *ngFor="let role of roles" [value]="role.RoleID">
+                    {{ role.RoleName }}
+                </md-option>
+            </md-select>
+            <div *ngIf="formErrors.RoleID" class="text-danger">
+                {{ formErrors.RoleID }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
             <md-input-container>
                 <input mdInput placeholder="Login Name" formControlName="LoginName">
             </md-input-container>
@@ -55,6 +65,6 @@
     </div>
     <md-dialog-actions class="md-dialog-footer" align="end">
         <button color="warn" type="button" md-raised-button (click)="dialogRef.close()">Cancel</button>&nbsp;
-        <button type="submit" color="primary" [disabled]="roleFrm.invalid" md-raised-button>{{modalBtnTitle}}</button>
+        <button type="submit" color="primary" [disabled]="userFrm.invalid" md-raised-button>{{modalBtnTitle}}</button>
         </ md-dialog-actions>
 </form>
