@@ -25,6 +25,10 @@ import { Format } from './Shared/datagrid/format';
 import { OrderBy } from './Shared/datagrid/orderby';
 import { AdminHeaderComponent } from './admin/adminheader.component';
 
+import { CategoryComponent } from './admin/catalog/category.component';
+import { ManageCategoryComponent } from './admin/catalog/managecategory.component';
+import { CategoryFilterPipe } from './admin/filter/category.pipe';
+
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, FormsModule,
         BrowserAnimationsModule,
@@ -32,9 +36,10 @@ import { AdminHeaderComponent } from './admin/adminheader.component';
         MdNativeDateModule],
     declarations: [AppComponent, LoginComponent, LogoutComponent, HomeComponent, SearchComponent,
         DataGrid, Format, OrderBy, AdminHeaderComponent, RoleComponent, ManageRoleComponent, UserComponent, ManageUserComponent
+        , CategoryComponent, ManageCategoryComponent
                   ],
-    providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, { provide: APP_BASE_HREF, useValue: '/' }, BaseService, RoleFilterPipe, UserFilterPipe],
-    entryComponents: [ ManageRoleComponent, ManageUserComponent ],
+    providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, { provide: APP_BASE_HREF, useValue: '/' }, BaseService, RoleFilterPipe, UserFilterPipe, CategoryFilterPipe],
+    entryComponents: [ ManageRoleComponent, ManageUserComponent, ManageCategoryComponent ],
     bootstrap: [AppComponent]
 
 })

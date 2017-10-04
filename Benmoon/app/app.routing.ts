@@ -6,6 +6,7 @@ import { LoginComponent } from './admin/user/login.component';
 import { LogoutComponent } from './admin/user/logout.component';
 import { RoleComponent } from './admin/user/role.component';
 import { UserComponent } from './admin/user/user.component';
+import { CategoryComponent } from './admin/catalog/category.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'logout', component: LogoutComponent },
     { path: 'role', component: RoleComponent },
-    { path: 'user', component: UserComponent }
+    { path: 'user', component: UserComponent },
+    { path: 'category', component: CategoryComponent }
 ];
 
 export const routing: ModuleWithProviders =

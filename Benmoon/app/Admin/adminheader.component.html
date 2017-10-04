@@ -4,15 +4,19 @@
             <!--<button md-icon-button [mdMenuTriggerFor]="menu">
                 <md-icon>more_vert</md-icon> Menu
             </button>-->
-            <button md-menu-item [routerLink]="['../home']">
+            <button md-button [routerLink]="['../home']">
                 <!--<md-icon>home</md-icon>-->
                 <span>Home</span>
             </button>
-            <button md-menu-item [mdMenuTriggerFor]="usermenu">
+            <button md-button [mdMenuTriggerFor]="catalogmenu">
+                <!--<md-icon>group</md-icon>-->
+                <span>Product Catalog</span>
+            </button>
+            <button md-button [mdMenuTriggerFor]="usermenu">
                 <!--<md-icon>group</md-icon>-->
                 <span>User Management</span>
             </button>
-            <button md-menu-item [routerLink]="['../logout']">
+            <button md-button [routerLink]="['../logout']">
                 <!--<md-icon>group</md-icon>-->
                 <span>Sign Out</span>
             </button>
@@ -22,6 +26,11 @@
                 </button>
                 <button md-menu-item [routerLink]="['../user']">
                     <span>Users</span>
+                </button>
+            </md-menu>
+            <md-menu #catalogmenu="mdMenu">
+                <button md-menu-item [routerLink]="['../category']">
+                    <span>Category</span>
                 </button>
             </md-menu>
         </div>

@@ -28,5 +28,10 @@ namespace Benmoon.Models
         public virtual DbSet<tblRoleMaster> tblRoleMasters { get; set; }
         public virtual DbSet<tblUnitMaster> tblUnitMasters { get; set; }
         public virtual DbSet<tblUserMaster> tblUserMasters { get; set; }
+        public virtual DbSet<tblCategoryMaster> tblCategoryMasters { get; set; }
+        public virtual DbSet<tblHSNSACodeMaster> tblHSNSACodeMasters { get; set; }
+        public virtual DbSet<tblPackingTypeMaster> tblPackingTypeMasters { get; set; }
+        public virtual DbSet<tblProductMaster> tblProductMasters { get; set; }
+        public virtual DbSet<tblProductPackingMaster> tblProductPackingMasters { get; set; }
     }
 }

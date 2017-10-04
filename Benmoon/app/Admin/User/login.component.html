@@ -1,9 +1,9 @@
-﻿<div class='panel panel-primary' style="width: 50%">
-    <div class='panel-heading'>
-        Login
+﻿<div class='login-panel login-panel-primary'>
+    <div class='login-panel-heading'>
+        Administrator Login
     </div>
     <form novalidate (ngSubmit)="onSubmit(loginFrm)" [formGroup]="loginFrm">
-        <div class='panel-body'>
+        <div class='login-panel-body'>
             <div class="frm-ctrl">
                 <md-input-container>
                     <input mdInput placeholder="Login ID" formControlName="LoginName" />
@@ -23,6 +23,7 @@
         </div>
         <md-dialog-actions class="md-dialog-footer" align="end">
             <button type="submit" color="primary" md-raised-button>{{BtnTitle}}</button>
+            <br />
         </md-dialog-actions>
     </form>
 </div>

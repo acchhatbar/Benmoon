@@ -10,6 +10,7 @@ Global.BASE_USER_ENDPOINT = 'api/userapi/';
 Global.LOGIN_ENDPOINT = 'api/loginapi/';
 Global.ADMIN_HOME_ENDPOINT = 'api/adminhome/';
 Global.BASE_ROLE_ENDPOINT = 'api/roleapi/';
+Global.BASE_CATEGORY_ENDPOINT = 'api/categoryapi/';
 //Global Variables
 Global.ADMIN_CURRENT_USER_SESSION = 'currentUser';
 exports.Global = Global;

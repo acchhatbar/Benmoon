@@ -4,7 +4,109 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BenmoonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BenmoonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblCategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="ParentCategoryID" Type="int" Nullable="false" />
+          <Property Name="CategoryCode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryDesc" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CategoryImage" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DisplayOrder" Type="smallint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CommandID" Type="tinyint" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateIP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateIP" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblHSNSACodeMaster">
+          <Key>
+            <PropertyRef Name="HSNSACodeID" />
+          </Key>
+          <Property Name="HSNSACodeID" Type="int" Nullable="false" />
+          <Property Name="HSNSACode" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="CGSTRate" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="SGSTRate" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="IGSTRate" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="IsService" Type="bit" Nullable="false" />
+          <Property Name="CommandID" Type="tinyint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateIP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateIP" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPackingTypeMaster">
+          <Key>
+            <PropertyRef Name="PackingTypeID" />
+          </Key>
+          <Property Name="PackingTypeID" Type="int" Nullable="false" />
+          <Property Name="PackingTypeCode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="PackingTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PackingTypeDesc" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CommandID" Type="tinyint" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateIP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateIP" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProductMaster">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductDesc" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="HSNSACodeID" Type="int" Nullable="false" />
+          <Property Name="ProductImage" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProductThumbImage" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Composition" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Benifits" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DirectionOfUse" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DisplayOrder" Type="smallint" Nullable="false" />
+          <Property Name="CommandID" Type="tinyint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateIP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateIP" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProductPackingMaster">
+          <Key>
+            <PropertyRef Name="ProductPackingID" />
+          </Key>
+          <Property Name="ProductPackingID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="UnitID" Type="int" Nullable="false" />
+          <Property Name="PackingTypeID" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="int" Nullable="false" />
+          <Property Name="MRP" Type="money" Nullable="false" />
+          <Property Name="DP" Type="money" Nullable="false" />
+          <Property Name="RP" Type="money" Nullable="false" />
+          <Property Name="CommandID" Type="tinyint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateIP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateIP" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="tblRoleMaster">
           <Key>
             <PropertyRef Name="RoleID" />
@@ -59,12 +161,16 @@
           <Property Name="UpdateIP" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityContainer Name="BenmoonModelStoreContainer">
+          <EntitySet Name="tblCategoryMaster" EntityType="Self.tblCategoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblHSNSACodeMaster" EntityType="Self.tblHSNSACodeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPackingTypeMaster" EntityType="Self.tblPackingTypeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProductMaster" EntityType="Self.tblProductMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProductPackingMaster" EntityType="Self.tblProductPackingMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblRoleMaster" EntityType="Self.tblRoleMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUnitMaster" EntityType="Self.tblUnitMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserMaster" EntityType="Self.tblUserMaster" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BenmoonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -125,7 +231,114 @@
           <EntitySet Name="tblRoleMasters" EntityType="Self.tblRoleMaster" />
           <EntitySet Name="tblUnitMasters" EntityType="Self.tblUnitMaster" />
           <EntitySet Name="tblUserMasters" EntityType="Self.tblUserMaster" />
+          <EntitySet Name="tblCategoryMasters" EntityType="BenmoonModel.tblCategoryMaster" />
+          <EntitySet Name="tblHSNSACodeMasters" EntityType="BenmoonModel.tblHSNSACodeMaster" />
+          <EntitySet Name="tblPackingTypeMasters" EntityType="BenmoonModel.tblPackingTypeMaster" />
+          <EntitySet Name="tblProductMasters" EntityType="BenmoonModel.tblProductMaster" />
+          <EntitySet Name="tblProductPackingMasters" EntityType="BenmoonModel.tblProductPackingMaster" />
         </EntityContainer>
+        <EntityType Name="tblCategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ParentCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryDesc" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryImage" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayOrder" Type="Int16" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CommandID" Type="Byte" Nullable="false" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblHSNSACodeMaster">
+          <Key>
+            <PropertyRef Name="HSNSACodeID" />
+          </Key>
+          <Property Name="HSNSACodeID" Type="Int32" Nullable="false" />
+          <Property Name="HSNSACode" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="CGSTRate" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="SGSTRate" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="IGSTRate" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="IsService" Type="Boolean" Nullable="false" />
+          <Property Name="CommandID" Type="Byte" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblPackingTypeMaster">
+          <Key>
+            <PropertyRef Name="PackingTypeID" />
+          </Key>
+          <Property Name="PackingTypeID" Type="Int32" Nullable="false" />
+          <Property Name="PackingTypeCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PackingTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PackingTypeDesc" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CommandID" Type="Byte" Nullable="false" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblProductMaster">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductDesc" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HSNSACodeID" Type="Int32" Nullable="false" />
+          <Property Name="ProductImage" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProductThumbImage" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Composition" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Benifits" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DirectionOfUse" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayOrder" Type="Int16" Nullable="false" />
+          <Property Name="CommandID" Type="Byte" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblProductPackingMaster">
+          <Key>
+            <PropertyRef Name="ProductPackingID" />
+          </Key>
+          <Property Name="ProductPackingID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="UnitID" Type="Int32" Nullable="false" />
+          <Property Name="PackingTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <Property Name="MRP" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="DP" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="RP" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="CommandID" Type="Byte" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -185,6 +398,113 @@
                 <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
                 <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
                 <ScalarProperty Name="UpdateIP" ColumnName="UpdateIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCategoryMasters">
+            <EntityTypeMapping TypeName="BenmoonModel.tblCategoryMaster">
+              <MappingFragment StoreEntitySet="tblCategoryMaster">
+                <ScalarProperty Name="UpdateIP" ColumnName="UpdateIP" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateIP" ColumnName="CreateIP" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="CategoryImage" ColumnName="CategoryImage" />
+                <ScalarProperty Name="CategoryDesc" ColumnName="CategoryDesc" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+                <ScalarProperty Name="ParentCategoryID" ColumnName="ParentCategoryID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblHSNSACodeMasters">
+            <EntityTypeMapping TypeName="BenmoonModel.tblHSNSACodeMaster">
+              <MappingFragment StoreEntitySet="tblHSNSACodeMaster">
+                <ScalarProperty Name="UpdateIP" ColumnName="UpdateIP" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateIP" ColumnName="CreateIP" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+                <ScalarProperty Name="IsService" ColumnName="IsService" />
+                <ScalarProperty Name="IGSTRate" ColumnName="IGSTRate" />
+                <ScalarProperty Name="SGSTRate" ColumnName="SGSTRate" />
+                <ScalarProperty Name="CGSTRate" ColumnName="CGSTRate" />
+                <ScalarProperty Name="HSNSACode" ColumnName="HSNSACode" />
+                <ScalarProperty Name="HSNSACodeID" ColumnName="HSNSACodeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPackingTypeMasters">
+            <EntityTypeMapping TypeName="BenmoonModel.tblPackingTypeMaster">
+              <MappingFragment StoreEntitySet="tblPackingTypeMaster">
+                <ScalarProperty Name="UpdateIP" ColumnName="UpdateIP" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateIP" ColumnName="CreateIP" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="PackingTypeDesc" ColumnName="PackingTypeDesc" />
+                <ScalarProperty Name="PackingTypeName" ColumnName="PackingTypeName" />
+                <ScalarProperty Name="PackingTypeCode" ColumnName="PackingTypeCode" />
+                <ScalarProperty Name="PackingTypeID" ColumnName="PackingTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProductMasters">
+            <EntityTypeMapping TypeName="BenmoonModel.tblProductMaster">
+              <MappingFragment StoreEntitySet="tblProductMaster">
+                <ScalarProperty Name="UpdateIP" ColumnName="UpdateIP" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateIP" ColumnName="CreateIP" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="DirectionOfUse" ColumnName="DirectionOfUse" />
+                <ScalarProperty Name="Benifits" ColumnName="Benifits" />
+                <ScalarProperty Name="Composition" ColumnName="Composition" />
+                <ScalarProperty Name="ProductThumbImage" ColumnName="ProductThumbImage" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="HSNSACodeID" ColumnName="HSNSACodeID" />
+                <ScalarProperty Name="ProductDesc" ColumnName="ProductDesc" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProductPackingMasters">
+            <EntityTypeMapping TypeName="BenmoonModel.tblProductPackingMaster">
+              <MappingFragment StoreEntitySet="tblProductPackingMaster">
+                <ScalarProperty Name="UpdateIP" ColumnName="UpdateIP" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateIP" ColumnName="CreateIP" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+                <ScalarProperty Name="RP" ColumnName="RP" />
+                <ScalarProperty Name="DP" ColumnName="DP" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="PackingTypeID" ColumnName="PackingTypeID" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductPackingID" ColumnName="ProductPackingID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

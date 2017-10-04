@@ -1,0 +1,62 @@
+﻿<form novalidate (ngSubmit)="onSubmit(categoryFrm)" [formGroup]="categoryFrm">
+    <div>
+        <h1 md-dialog-title><span><md-icon>create</md-icon>{{modalTitle}}</span></h1>
+    </div>
+    <div style="padding-bottom:1px;background-color:#d8d8d8"></div>
+    <div md-dialog-content class="md-dialog-container">
+        <div class="frm-ctrl">
+            <md-select placeholder="Parent Category" formControlName="ParentCategoryID">
+                <md-option *ngFor="let parentCategory of parentCategories" [value]="parentCategory.CategoryID">
+                    {{ parentCategory.CategoryName }}
+                </md-option>
+            </md-select>
+            <div *ngIf="formErrors.ParentCategoryID" class="text-danger">
+                {{ formErrors.ParentCategoryID }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Category Code" formControlName="CategoryCode">
+            </md-input-container>
+            <div *ngIf="formErrors.CategoryCode" class="text-danger">
+                {{ formErrors.CategoryCode }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Category Name" formControlName="CategoryName">
+            </md-input-container>
+            <div *ngIf="formErrors.CategoryName" class="text-danger">
+                {{ formErrors.CategoryName }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Category Desc" formControlName="CategoryDesc">
+            </md-input-container>
+            <div *ngIf="formErrors.CategoryDesc" class="text-danger">
+                {{ formErrors.CategoryDesc }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Display Order" formControlName="DisplayOrder">
+            </md-input-container>
+            <div *ngIf="formErrors.DisplayOrder" class="text-danger">
+                {{ formErrors.DisplayOrder }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-checkbox formControlName="IsActive">
+                Is Active
+            </md-checkbox>
+            <div *ngIf="formErrors.IsActive" class="text-danger">
+                {{ formErrors.IsActive }}
+            </div>
+        </div>
+    </div>
+    <md-dialog-actions class="md-dialog-footer" align="end">
+        <button color="warn" type="button" md-raised-button (click)="dialogRef.close()">Cancel</button>&nbsp;
+        <button type="submit" color="primary" [disabled]="categoryFrm.invalid" md-raised-button>{{modalBtnTitle}}</button>
+        </ md-dialog-actions>
+</form>

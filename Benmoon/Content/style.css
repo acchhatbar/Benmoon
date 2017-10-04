@@ -1,37 +1,82 @@
 ﻿.md-dialog-container {
-  width: 550px;
-  height: 480px;
-  padding-bottom: 20px;
-  padding-top: 20px;
+    width: 550px;
+    height: 480px;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 .md-dialog-footer {
-  padding: 20px;
-  width: 100%;
+    padding: 20px;
+    width: 100%;
 }
 
 md-input-container {
-  width: 100%;
+    width: 100%;
 }
 
 .frm-ctrl {
-  padding-top: 20px;
-  width: 100%;
+    padding-top: 20px;
+    width: 100%;
 }
 
 .line_ctrl {
-  float: left;
-  width: 145px;
-  text-align: right;
-  margin: 2px;
-  display: inline;
+    float: left;
+    width: 145px;
+    text-align: right;
+    margin: 2px;
+    display: inline;
 }
 
 .example-card {
-  width: 400px;
+    width: 400px;
 }
 
 .example-header-image {
-  background-image: url('../images/users.png');
-  background-size: cover;
+    background-image: url('../images/users.png');
+    background-size: cover;
 }
+
+.login-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    width:500px;
+}
+
+.login-panel-primary {
+    border-color: #428bca;
+}
+
+.login-panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.login-panel-primary > .login-panel-heading {
+    color: #ffffff;
+    background-color: #0f713c;
+    border-color: #0f713c;
+}
+
+.login-panel-body {
+    padding: 15px;
+}
+
+    .login-panel-body:before,
+    .login-panel-body:after {
+        display: table;
+        content: " ";
+    }
+
+    .login-panel-body:after {
+        clear: both;
+    }

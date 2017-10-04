@@ -31,6 +31,9 @@ var datagrid_component_1 = require("./Shared/datagrid/datagrid.component");
 var format_1 = require("./Shared/datagrid/format");
 var orderby_1 = require("./Shared/datagrid/orderby");
 var adminheader_component_1 = require("./admin/adminheader.component");
+var category_component_1 = require("./admin/catalog/category.component");
+var managecategory_component_1 = require("./admin/catalog/managecategory.component");
+var category_pipe_1 = require("./admin/filter/category.pipe");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -43,10 +46,11 @@ AppModule = __decorate([
             material_1.MaterialModule,
             material_1.MdNativeDateModule],
         declarations: [app_component_1.AppComponent, login_component_1.LoginComponent, logout_component_1.LogoutComponent, home_component_1.HomeComponent, search_component_1.SearchComponent,
-            datagrid_component_1.DataGrid, format_1.Format, orderby_1.OrderBy, adminheader_component_1.AdminHeaderComponent, role_component_1.RoleComponent, managerole_component_1.ManageRoleComponent, user_component_1.UserComponent, manageuser_component_1.ManageUserComponent
+            datagrid_component_1.DataGrid, format_1.Format, orderby_1.OrderBy, adminheader_component_1.AdminHeaderComponent, role_component_1.RoleComponent, managerole_component_1.ManageRoleComponent, user_component_1.UserComponent, manageuser_component_1.ManageUserComponent,
+            category_component_1.CategoryComponent, managecategory_component_1.ManageCategoryComponent
         ],
-        providers: [{ provide: core_1.ErrorHandler, useClass: errorhandler_1.default }, { provide: common_1.APP_BASE_HREF, useValue: '/' }, base_service_1.BaseService, role_pipe_1.RoleFilterPipe, user_pipe_1.UserFilterPipe],
-        entryComponents: [managerole_component_1.ManageRoleComponent, manageuser_component_1.ManageUserComponent],
+        providers: [{ provide: core_1.ErrorHandler, useClass: errorhandler_1.default }, { provide: common_1.APP_BASE_HREF, useValue: '/' }, base_service_1.BaseService, role_pipe_1.RoleFilterPipe, user_pipe_1.UserFilterPipe, category_pipe_1.CategoryFilterPipe],
+        entryComponents: [managerole_component_1.ManageRoleComponent, manageuser_component_1.ManageUserComponent, managecategory_component_1.ManageCategoryComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
